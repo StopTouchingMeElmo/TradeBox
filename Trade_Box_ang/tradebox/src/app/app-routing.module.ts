@@ -3,11 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { ItemCreationFormComponent } from 'src/components/item-creation-form/item-creation-form.component';
 import { CatalogueComponent } from 'src/components/catalogue/catalogue.component';
 import { HomeComponent } from 'src/components/home/home.component';
+import { ItemDetailsComponent } from 'src/components/item-details/item-details.component';
 
 const appRoutes: Routes = [
     { path: 'creation', component: ItemCreationFormComponent },
     { path: 'catalogue', component: CatalogueComponent },
     { path: 'home', component: HomeComponent },
+    { path: 'item-details/:id', component: ItemDetailsComponent },
     { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

@@ -10,8 +10,14 @@ const bodyParser = require('body-parser');
 
 Task = require('./api/models/goodsModel');
 
+//Загрузка файла
+/* var multer = require('multer');
+var DIR = './uploads/';
+var upload = multer({dest: DIR}); */
+
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
+mongoose.set('useNewUrlParser', true);
 mongoose.connect('mongodb://localhost:27017/mydb');
 
 /* app.use(function (req, res) {
@@ -26,7 +32,22 @@ mongoose.connect('mongodb://localhost:27017/mydb');
   next();
 }); */
 
-app.use(bodyParser.urlencoded({ extended: true }));
+/* app.use(multer({
+  dest: DIR,
+  rename: function (fieldname, filename) {
+    return filename + Date.now();
+  },
+  onFileUploadStart: function (file) {
+    console.log(file.originalname + ' is starting ...');
+  },
+  onFileUploadComplete: function (file) {
+    console.log(file.fieldname + ' uploaded to  ' + file.path);
+  }
+})); */
+
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 app.use(bodyParser.json());
 
 let routes = require('./api/routes/goodsRoutes'); //importing route
@@ -34,6 +55,16 @@ routes(app); //register the route
 
 app.use(express.static('tradebox/dist/tradebox/'));
 /* G:\ITMO\Node_course\Trade_Box_ang\tradebox\dist\tradebox */
+
+app.all('/*', function (req, res) {
+  console.log('All');
+  res
+    .status(200)
+    .set({
+      'content-type': 'text/html; charset=utf-8; image/x-icon'
+    })
+    .sendfile('tradebox/dist/tradebox/index.html');
+});
 
 const server = http.Server(app);
 /* server.listen(4200); */

@@ -27,8 +27,8 @@
         <td mat-cell *matCellDef="let row">{{row.brand}}</td>
       </ng-container>
 
-       <!-- Product Desc Column -->
-       <ng-container matColumnDef="desc">
+      <!-- Product Desc Column -->
+      <ng-container matColumnDef="desc">
         <th mat-header-cell *matHeaderCellDef>Product Desc</th>
         <td mat-cell *matCellDef="let row">{{row.desc}}</td>
       </ng-container>
@@ -46,7 +46,8 @@
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;" [routerLink]="['/product-details/', row.id]"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" [routerLink]="['/item-details/', row._id ]">
+      </tr>
     </table>
   </div>
 </div>

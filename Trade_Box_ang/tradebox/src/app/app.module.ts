@@ -24,6 +24,7 @@ import { LoaderService } from 'src/app/services/loader.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from 'src/components/home/home.component';
 import 'hammerjs';
+import { ItemDetailsComponent } from 'src/components/item-details/item-details.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import 'hammerjs';
     AppComponent,
     ItemCreationFormComponent,
     HomeComponent,
-    CatalogueComponent
+    CatalogueComponent,
+    ItemDetailsComponent
   ],
   imports: [
     BrowserModule,

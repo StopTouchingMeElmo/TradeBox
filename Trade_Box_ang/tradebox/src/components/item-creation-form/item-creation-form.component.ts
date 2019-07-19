@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LoaderService } from 'src/app/services/loader.service';
 import { ItemModel } from 'src/app/models/item-model';
+/* import { FileSelectDirective, FileUploader } from 'ng2-file-upload';
+import { post } from 'selenium-webdriver/http'; */
 
 @Component({
   selector: 'app-item-creation-form',
@@ -9,6 +11,12 @@ import { ItemModel } from 'src/app/models/item-model';
 })
 export class ItemCreationFormComponent implements OnInit {
 
+  /* public uploader: FileUploader = new FileUploader({ 
+    url: "animals",
+    
+
+  }); */
+
   constructor(private loader: LoaderService) { }
 
   itemModel: ItemModel = new ItemModel();
@@ -16,9 +24,8 @@ export class ItemCreationFormComponent implements OnInit {
   ngOnInit() {
   }
 
-  submit()
-  {
-    this.loader.postItem(this.itemModel).subscribe( s => s);
+  submit() {
+    this.loader.postItem(this.itemModel).subscribe(s => s);
     alert('Created');
   }
 

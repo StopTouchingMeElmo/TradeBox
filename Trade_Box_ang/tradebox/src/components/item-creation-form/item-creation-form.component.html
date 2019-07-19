@@ -28,6 +28,11 @@
       </mat-form-field>
 
       <!-- <mat-form-field>
+        <input matInput placeholder="Загрузите изображение" type="file" ng2FileSelect [uploader]="uploader" />
+      </mat-form-field> -->
+
+
+      <!-- <mat-form-field>
         <textarea matInput placeholder="Краткое описание товара"></textarea>
       </mat-form-field>
 
@@ -40,7 +45,8 @@
               <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
             </mat-form-field> -->
 
-      <button mat-raised-button color="primary" type="submit" (click)="submit()">Create</button>
+      <button mat-raised-button color="primary" type="submit" (click)="submit()">Create  <mat-icon>publish</mat-icon>
+        </button>
 
     </form>
 
