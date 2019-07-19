@@ -25,4 +25,19 @@ export class ItemDetailsComponent implements OnInit {
     )
   }
 
+  //delete
+  deleteProduct(id: any) {
+    this.loader.deleteItem(id)
+      .subscribe((response: ItemModel) => {
+        this.product = response;
+        this.isLoadingResults = true;
+        this.router.navigate(['/catalogue']);
+      }, (err) => {
+        console.log(err);
+        this.isLoadingResults = false;
+      }
+      );
+
+  }
+
 }

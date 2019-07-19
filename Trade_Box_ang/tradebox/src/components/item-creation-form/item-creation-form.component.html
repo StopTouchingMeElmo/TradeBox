@@ -45,8 +45,9 @@
               <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
             </mat-form-field> -->
 
-      <button mat-raised-button color="primary" type="submit" (click)="submit()">Create  <mat-icon>publish</mat-icon>
-        </button>
+      <button mat-raised-button color="primary" type="submit" (click)="submit()">{{ editMode ? 'Edit' : 'Create' }}
+        <mat-icon>publish</mat-icon>
+      </button>
 
     </form>
 

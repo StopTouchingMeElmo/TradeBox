@@ -46,11 +46,9 @@ exports.read_a_pieceOfClothing = function (req, res) {
 
 
 exports.update_a_pieceOfClothing = function (req, res) {
-  PieceOfClothing.findOneAndUpdate({
-    _id: req.params.taskId
-  }, req.body, {
-    new: true
-  }, function (err, task) {
+  PieceOfClothing.findOneAndUpdate(
+    req.params.id,
+    req.body, function (err, task) {
     if (err)
       res.send(err);
     res.json(task);
@@ -60,9 +58,8 @@ exports.update_a_pieceOfClothing = function (req, res) {
 
 exports.delete_a_pieceOfClothing = function (req, res) {
 
-
   PieceOfClothing.remove({
-    _id: req.params.taskId
+    _id: req.params.id
   }, function (err, task) {
     if (err)
       res.send(err);

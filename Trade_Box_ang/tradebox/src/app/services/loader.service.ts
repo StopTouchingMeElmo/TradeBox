@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { ItemModel } from '../models/item-model';
+import { ItemModel, EditItemModel } from '../models/item-model';
 
 
 
@@ -28,4 +28,14 @@ const httpOptions = {
   getItemDetails(id) {
     return this.httpClient.get<ItemModel>(`animals/${id}`);
   }
+
+  deleteItem(id) {
+    return this.httpClient.delete<ItemModel>(`animals/${id}`);
+  }
+
+  editItem(item) {
+    let editItem = new EditItemModel(item.name, item.price, item.brand, item.created_date, item.desc, item.type); 
+    return this.httpClient.put<ItemModel>(`animals/${item.id}`, editItem);
+  }
+
 }

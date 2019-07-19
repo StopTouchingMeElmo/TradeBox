@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoaderService } from 'src/app/services/loader.service';
 import { ItemModel } from 'src/app/models/item-model';
+import { ActivatedRoute, Router } from '@angular/router';
 /* import { FileSelectDirective, FileUploader } from 'ng2-file-upload';
 import { post } from 'selenium-webdriver/http'; */
 
@@ -17,16 +18,37 @@ export class ItemCreationFormComponent implements OnInit {
 
   }); */
 
-  constructor(private loader: LoaderService) { }
+  constructor(private route: ActivatedRoute, private loader: LoaderService, private router: Router) { }
 
   itemModel: ItemModel = new ItemModel();
 
+  editMode: boolean;
+
   ngOnInit() {
+
+    let itemId = this.route.snapshot.params['id'];
+
+    if (itemId && itemId.length > 0) {
+      this.editMode = true;
+      this.loader.getItemDetails(itemId).subscribe(
+        (response: ItemModel) => {
+          this.itemModel = response;
+        }
+      )
+    }
+
   }
 
   submit() {
-    this.loader.postItem(this.itemModel).subscribe(s => s);
-    alert('Created');
+    if (this.editMode) {
+      this.loader.editItem(this.itemModel).subscribe
+        (s => s);
+      this.router.navigate(['/catalogue']);
+    }
+    else {
+      this.loader.postItem(this.itemModel).subscribe(s => s);
+      alert('Created');
+    }
   }
 
 

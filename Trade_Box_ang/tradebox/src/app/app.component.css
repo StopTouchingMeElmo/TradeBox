@@ -21,37 +21,14 @@ img {
   left: 0;
   right: 0;
   background: #eee;
+ 
   /*  border: 1px solid #555; */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+ /*  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
   
 }
 
 .side-menu {
   color: #673ab7;
-}
-
-.form-container {
-  display: grid;
-  /* width: 1200px; */
-  /* justify-content: center; */
-  /* justify-items: center; */
-  grid-gap: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  margin-left: 10px;
-  margin-bottom: 10px;
-  margin-top: 10px;
-  margin-right: 10px;
-}
-
-.title_form {
-  display: grid;
-  justify-items: center;
-  justify-content: center;
-}
-
-.my-form {
-  display: flex;
-  flex-direction: column;
 }
 
 /* .form-container>* {

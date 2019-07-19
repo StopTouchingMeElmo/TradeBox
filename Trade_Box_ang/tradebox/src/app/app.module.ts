@@ -25,6 +25,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from 'src/components/home/home.component';
 import 'hammerjs';
 import { ItemDetailsComponent } from 'src/components/item-details/item-details.component';
+import { ItemEditComponent } from 'src/components/item-edit/item-edit.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { ItemDetailsComponent } from 'src/components/item-details/item-details.c
     ItemCreationFormComponent,
     HomeComponent,
     CatalogueComponent,
-    ItemDetailsComponent
+    ItemDetailsComponent,
+    ItemEditComponent
   ],
   imports: [
     BrowserModule,
